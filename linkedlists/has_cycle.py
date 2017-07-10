@@ -19,3 +19,6 @@ def has_cycle(head):
     	rabbit = rabbit.next.next
     	if tortoise is None or rabbit is None:
     		return 0
+    	if rabbit == tortoise:
+    		return 1
+    return 0

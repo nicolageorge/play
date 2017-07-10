@@ -22,6 +22,6 @@ def GetNode(head, position):
 	nodes -= position
 
   	while nodes > 1:
-		node = node.next
+		head = head.next
   		nodes -= 1
-  	return node
+  	return head.data

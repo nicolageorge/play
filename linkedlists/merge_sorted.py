@@ -12,23 +12,14 @@
  return back the head of the linked list in the below method.
 """
 def MergeLists(headA, headB):
-	if headA.data is None:
+	if headA is None:
 		return headB
-	if headB.data is None:
+	if headB is None:
 		return headA
 
 	if headA.data < headB.data:
 		headA.next = MergeLists(headA.next, headB)
 		return headA
-
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+	else:
+		headB.next = MergeLists(headA, headB.next)
+		return headB
