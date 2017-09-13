@@ -2,38 +2,24 @@
 
 import sys
 
-def min_candy(i, arr, candy):
-	if i == 0:
-		neighbor_value = arr[i+1]
-		neighbor_c = candy[i+1]
-	elif i == len(arr):
-		neighbor_value = arr[i-1]
-		neighbor_candy = candy[i-1]
-	else:
-		neighbor_value = max(arr[i-1], arr[i+1])
-		neighbor_candy = max(candy[i-1], candy[i+1])
-
-	if arr[i] > neighbor_value and candy[i] <= neighbor_candy:
-		return neighbor_candy+1
-
-
 def candies(n, arr):
-	candy = []
-	# candy[0] = min(arr)
-	candy = [0 for x in range(n)]
-	baddest_kid = min(arr)
-	# Complete this function
-	i = 0
-	while i < n-2:
+	candy = [1 for x in range(n)]
+	i = 1
+	while i < n:
 		if arr[i] > arr[i-1]:
 			candy[i] = candy[i-1] + 1
+		# else:
+		# 	if i == 1:
+		# 		candy[i+1] = candy[i] + 1
+		i += 1
 
-	while i > 0:
-		if arr[i] > arr[i+1]:
-			candy[i] = candy[i-1] + 1
-
+	i -= 1
+	while i >= 1:
+		if arr[i-1] > arr[i] and candy[i-1] <= candy[i]:
+			candy[i-1] = candy[i] + 1
+		# print i, arr[i-1], arr[i], candy
 		i -= 1
-	return candy
+	return sum(candy)
 
 if __name__ == "__main__":
     n = int(raw_input().strip())

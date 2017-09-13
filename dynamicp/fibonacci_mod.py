@@ -1,13 +1,13 @@
-def mod_fib(t0, t1, n):
+def mod_fib(t1, t2, n):
     fib = [0 for x in range(n+1)]
-    fib[0] = t0
     fib[1] = t1
-    i = 2
+    fib[2] = t2
+    i = 3
     while i <= n:
         fib[i] = fib[i-2] + fib[i-1]**2
         i += 1
-    print i
-    return fib[n]
+    # print i
+    return fib[-1]
 
-[t0, t1, n] = map(int, raw_input().strip().split(' '))
-print mod_fib(n)
+[t1, t2, n] = map(int, raw_input().strip().split(' '))
+print mod_fib(t1, t2, n)
