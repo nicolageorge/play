@@ -25,7 +25,7 @@ def dp_non_rep(inp):
 			seen[inp[i]] = True
 			maxi = max(maxi, len(seen))
 			# print maxi
-		else:
+		else: 
 			seen = {}
 	print maxi
 
